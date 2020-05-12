@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>freeDSP | An Open-Source Low-Budget Audio DSP</title>
+  <meta name="description" content="freeDSP | An Open-Source Low-Budget Audio DSP">
+  <meta name="author" content="Sebastian Merchel">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- Google Webfonts - Roboto Slab & Nunito -->
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,700|Roboto+Slab:400,700" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/icon-fonts.css" />
+  <link rel="stylesheet" href="css/flexslider.css" />
+  <link rel="stylesheet" href="css/animate.css" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="css/style1.css" id="colors" />
+
+  <!-- A few scripts that need to be in the head section -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
+  <!--[if IE]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- FlexSlider -->
+  <script src="js/jquery.flexslider.js"></script>
+  <script type="text/javascript">
+    $(window).load(function() {
+      var slide_items = false;
+      
+      if ( $('.no-csstransforms').length ) {
+        slide_items = true;
+      }
+      
+      $('.flexslider').flexslider({
+        before: function(slider) {
+          if ( slide_items ) {
+            $('.flex-active-slide > *').fadeOut();
+          }
+        },
+        after: function(slider) {
+          if ( slide_items ) {
+            $('.flex-active-slide > *').fadeIn();
+          }
+        }
+      });
+    })
+  </script>
+  
+  <!-- Tooltip -->
+<!--  <script>
+    $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip(); 
+    });
+  </script>-->
+
+  <!-- Popover -->  
+  <script>
+	$(document).ready(function(){
+      $('[data-toggle="popover"]').popover(); 
+	
+	  $('div[rel=popover]').popover({
+  	  html: true,
+  	  trigger: 'hover',
+      placement: 'right',
+      content: function(){return '<img src="'+$(this).data('img') + '" / style=width:100%>';}
+      });
+	  
+	  $('a[rel=popover]').popover({
+  	  html: true,
+  	  trigger: 'hover',
+      placement: 'right',
+      content: function(){return '<img src="'+$(this).data('img') + '" / style=width:100%>';}
+      });
+	  
+	});
+  </script>
+  
+  
+  <!-- Analytics - new account!!! -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-75046814-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body id="section-home" data-spy="scroll" data-target="#main-nav" data-offset="72">
+
+  <!--////////// 3-LEVEL PARALLAX BACKGROUND - images can be changed in CSS //////////-->
+  <div id="parallax-1" class="parallax"></div>
+  <div id="parallax-2" class="parallax"></div>
+  <div id="parallax-3" class="parallax"></div>
+
+  <!--/////////// HEADER SECTION //////////-->
+  <header id="morph-header" class="morph-header-large">
+    <nav role="navigation">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span data-icon="&#xf00b;" aria-hidden="true"></span>
+          </button>
+          <a class="navbar-brand" href="index.html"><img src="images/freeDSP_LOGO_white.png" alt=""></a>
+        </div>
+        <div id="main-nav" class="collapse navbar-collapse navbar-collapse">          
+          <ul class="nav navbar-nav fancy-nav navbar-right">
+            <!--////////// NAVIGATION MENU //////////-->
+            <li class="active"><a href="#section-home"><span data-hover="Features">Features</span></a></li>
+            <li><a href="#section-tour"><span data-hover="Start">Start</span></a></li>
+            <li><a href="#section-overview"><span data-hover="Boards">Boards</span></a></li>
+            <li><a href="#section-applications"><span data-hover="Applications">Appplications</span></a></li>
+            <li><a href="#section-contact"><span data-hover="Contact">ContacT</span></a></li>
+          </ul>
+        </div><!-- /navbar-collapse -->
+      </div><!-- /container -->
+    </nav>
+  </header>
+  
+  <!--////////// SLIDER SECTION ////////// -->
+  <section id="section-slider">
+    <div class="container">
+      <div class="row clearfix morph-waypoint" data-animate-down="morph-header-small" data-animate-up="morph-header-large">
+        <!-- ////////// FLEX SLIDER STARTS HERE ////////// -->
+        <div id="main-slider" class="flexslider">
+          <ul class="slides">
+          
+            <li>
+              <div class="col-md-6 col-md-offset-1 slider-text">
+                <h1 class="animated bounceInDown">freeDSP-aurora has been successful on KICKSTARTER!</h1>
+                <p class="animated bounceInDown">We are happy that the freeDSP-aurora with 8 inputs and 8 outputs, USB Audio Class 2 and wireless control via Wifi and Bluetooth was successful on <a href="https://www.kickstarter.com/projects/auverdion/freedsp-aurora-dsp?ref=discovery&term=aurora">KICKSTARTER</a>. </p> 
+              </div><!-- /slider-text -->
+              <div class="col-md-4">
+                <div style="margin-bottom: 96px;"></div>  
+                <img class="img-responsive animated fadeInDownBig" src="images/freeDSP_aurora.png" alt="" title="" />
+              </div>
+            </li>
+
+            <li>
+              <div class="col-md-6 col-md-offset-1 slider-text">
+                <h1 class="animated bounceInDown">A DIY audio dsp project.</h1>
+                <p class="animated bounceInDown">The freeDSP is an open-source digital signal processor family for the do-it-yourself community. The applications range from active loudspeaker concepts (digital crossovers, bass enhancement, ...) and room equalization over advanced musical effect processors to car audio signal processing. </p> 
+              </div><!-- /slider-text -->
+              <div class="col-md-4">
+                <div style="margin-bottom: 96px;"></div>  
+                <img class="img-responsive animated fadeInDownBig" src="images/freeDSP_1_0_side_small.png" alt="" title="" />
+              </div>
+            </li>
+
+            <li>
+              <div class="col-md-4 col-md-offset-1" style="padding-top: 100px;">
+                <img class="img-responsive animated flipInY" src="images/SigmaStudioScreenShot.png" alt="" title="" />
+              </div>
+              <div class="col-md-5 col-md-offset-1 slider-text">
+                <h1 class="animated bounceInDown">Easy programmability with SigmaStudio.</h1>
+                <p class="animated bounceInDown">No advanced coding skills are necessary. The freeDSP works with a graphical development environment. The programming model is function-block based. Just drag-and-drop some processing blocks and virtual cables - and you are ready to go! The Windows based software can be downloaded from Analog Devices free of charge. 
+</p>
+                <!--<a class="btn btn-primary btn-large animated bounceInRight" href="#section-tour">Take the Tour!</a>-->
+              </div><!-- /slider-text -->
+            </li>
+
+            <li>
+              <div class="col-md-5 col-md-offset-1 slider-text">
+                <h1 class="animated bounceInDown">It's open-source.</h1>
+                <p class="animated bounceInDown">All freeDSP boards are published under a creative commons license (CC-BY-SA). It allows the unrestricted use and modification of the module. We would be happy if you join the team and improve or extend the freeDSP family. We really like the open hardware idea. :-)</p>
+                <!--<a class="btn btn-primary btn-large animated bounceInLeft" href="..." target="_blank">Link (external link)</a>-->
+              </div><!-- /slider-text -->
+              
+              <div class="col-md-4" style="padding-top: 70px;">
+                <img class="img-responsive animated bounceInRight" src="images/open-source-hardware-logo.svg" alt="" title="" />
+              </div>
+              
+            </li>
+          </ul>
+        </div><!-- /#main-slider -->
+      </div><!-- /row -->
+    </div><!-- /container -->
+  </section>
+
+  <!--////////// FEATURES SECTION //////////-->
+  <section id="features">
+    <div class="container">
+      <div class="row">
+        <p class="lead" style="color:#99cc00;"><a href="#section-contact">PLEASE (RE)SUBSCRIBE TO OUR NEWSLETTER.<br>UNFORTUNATELY, ALL SUBSRIPTIONS BEFORE 2019 WERE DELETED!</a><!--Welcome to the freeDSP website. Here you can find instructions, examples, all necessary components and the latest freeDSP circuit board designs.-->
+        </p>
+      </div><!-- /row -->
+      <hr>
+      <div class="row">
+        <!--<div class="col-md-4 feature">
+          <span data-icon="&#xf0d6;" aria-hidden="true"></span>
+          <h2>Low Budget</h2><p>The costs for a freeDSP are circuit board manufacturing and electric components (50 €). It can be soldered by hand. Soldering experience required! The most difficult part is the actual DSP chip <a href="http://www.analog.com/en/audiovideo-products/audio-signal-processors/adau1701/products/product.html">ADAU1701</a>. However, we will ship the freeDSP board with this chip already assambled.</p>
+        </div><!-- /feature -->
+        
+        <div class="col-md-4 feature">
+          <span data-icon="&#xe0c7;" aria-hidden="true"></span>
+          <h2>Quick Links</h2><p>
+          <a href="http://www.diyaudio.com/forums/digital-line-level/285260-freedsp-main-thread.html" target="_blank">freeDSP diyAudio forum</a><br>
+          <a href="https://github.com/freeDSP" target="_blank">freeDSP GitHub repository</a><br>
+          <a href="https://github.com/freeDSP/WIKI-AND-GENERAL-TOPICS/wiki" target="_blank">freeDSP design guidelines</a><br><br>
+          
+          <a href="https://wiki.analog.com/resources/tools-software/sigmastudio?rev=1447935767" target="_blank">SigmaStudio documentation</a><br>	
+          <a href="http://ez.analog.com/community/dsp/sigmadsp" target="_blank">SigmaStudio forum</a>
+          </p>
+        </div><!-- /feature -->
+        
+        <div class="col-md-4 feature">
+          <span data-icon="&#xe092;" aria-hidden="true"></span>
+          <h2>Audio Processing</h2><p>
+          Graphic & parametric EQs<br>
+          Mixing<br>
+          Phase shifting<br>
+          Dynamics processing<br>
+          IIR / FIR filtering<br>
+          Low-level DSP functions<br>
+          Real time tuning<br>
+          ...
+          </p>
+        </div><!-- /feature -->
+        
+        <div class="col-md-4 feature">
+          <span data-icon="&#xe118;" aria-hidden="true"></span>
+          <h2>Applications</h2><p>
+          Digital crossovers<br>
+          Digital room correction<br>
+	      Subwoofer integration<br>
+          Musical effect units<br>
+          System equalization<br>
+          Delay compensation<br>
+          Bass enhancement<br>
+          ...
+        </div><!-- /feature -->
+      </div><!-- /row -->
+    </div><!-- /container -->
+  </section>
+
+  <!--////////// TOUR SECTION //////////-->
+  <section id="section-tour">
+    <div class="container">
+      <div class="row">
+        <h1 class="text-center">Getting started!</h1>
+        <ul class="media-list">
+          
+          <!--///// STEP 1 ///// -->
+          <li class="media col-md-12" id="step-1">
+            <div class="tour-step-icon">1</div>
+            <span class="tour-line-half"></span>
+            <div class="row">
+              <div class="col-md-1">
+                <span class="tour-line-vert"></span>
+              </div>
+              <div class="tour-step-container">
+                <div class="col-md-2 icon"><span data-icon="&#xe03c;" aria-hidden="true"></span></div>
+                <div class="media-body col-md-8">
+                  <h3 class="media-heading">Order board and parts...</h3>
+                  <p class="media-desc">Select your <a href="#section-overview">freeDSP main board from the overview table</a> below. Additionally, you will need a programmer. We recommend building the <a href="https://docs.google.com/document/d/1rKkCl3gyePwX15c3sjEIKP6Bb7CO77hgRAXtbYz5hA0/edit?usp=sharing" target="_blank">freeUSBi programmer</a> for real time tuning of your programms. Download the Gerber files and manufacture the board. You have to order all necessary parts yourself. We do not offer centralized buying at the moment!
+<!--You can build the freeUSBi programmer or buy the original <a href="http://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/eval-adusb2ebz.html" target="_blank">USBi programmer</a> (80 $, real time tuning) or use an Arduino to control your DSP board.">-->
+                  </p>
+                </div><!-- /media-body -->
+              </div><!-- /tour-step-container -->
+            </div><!-- /row -->
+          </li>
+
+          <!-- ///// STEP 2 ///// -->
+          <li class="media col-md-12" id="step-2">
+            <div class="tour-step-icon">2</div>
+            <span class="tour-line-full"></span>
+            <div class="row">
+              <div class="col-md-1 col-md-push-11">
+                <span class="tour-line-vert pull-right"></span>
+              </div>
+              <div class="tour-step-container">
+                <div class="col-md-2 col-md-push-8 icon"><span data-icon="&#xf0ad;" aria-hidden="true"></span></div>
+                <div class="media-body col-md-8 col-md-pull-2">
+                  <h3 class="media-heading">Solder / Assemble...</h3>
+                  <p class="media-desc"><!--If you ordered a preassembled freeDSP kit, all unsoldered components are through hole, so they can be soldered with basic soldering knowledge.-->You can find the part list and the assembly print for soldering in the table below (e.g., in the corresponding getting started guides). Some soldering experience is required for SMD components. Hopefully, there will be preassamled freeDSP kits again in the future. :-)<!--In this case, all unsoldered components might be through hole, so they can be soldered with basic soldering knowledge.--></p>
+                </div><!-- /media-body -->
+              </div><!-- /tour-step-container -->
+            </div><!-- /row -->
+          </li>
+
+          <!--///// STEP 3 ///// -->
+          <li class="media col-md-12" id="step-3">
+            <div class="tour-step-icon">3</div>
+            <span class="tour-line-full"></span>
+            <div class="row">
+              <div class="col-md-1">
+                <span class="tour-line-vert"></span>
+              </div>
+              <div class="tour-step-container">
+                <div class="col-md-2 icon final"><span data-icon="&#xf11c;" aria-hidden="true"></span></div>
+                <div class="media-body col-md-8">
+                  <h3 class="media-heading">Do the programming...</h3><!--Little or no DSP coding experience is required to quickly get up and running. -->
+                  <p class="media-desc">The graphical development environment SigmaStudio can be used for easy programming. It can be downloaded for free (account needed) at the <a href="http://www.analog.com/en/design-center/processors-and-dsp/evaluation-and-development-software/ss_sigst_02.html" target="_blank">SigmaStudio</a> website. Please have a look at the getting started guides to get your freeDSP up and running with SigmaStudio. For further questions please refer to  the <a href="https://wiki.analog.com/resources/tools-software/sigmastudio?rev=1447935767" target="_blank">SigmaStudio documentation</a> and <a href="http://ez.analog.com/community/dsp/sigmadsp" target="_blank"> forum</a>.</p>
+                </div><!-- /media-body -->
+              </div><!-- /tour-step-container -->
+            </div><!-- /row -->
+          </li>
+          
+
+          <!-- ///// TOUR END ///// -->
+          <li class="media last-step col-md-12" id="tour-end">
+            <div class="tour-step-icon final"><span data-icon="&#xe118;" aria-hidden="true"></span></div>
+            <span class="tour-line-half"></span>
+            <p class="lead launch col-md-5 col-md-push-7">... enjoy!</p>
+          </li>
+        </ul>
+      </div><!-- /row -->
+    </div><!-- /container -->
+  </section>
+  
+  <!--////////// OVERVIEW SECTION //////////-->
+  <section id="section-overview">
+    <div class="container">
+        <h1 class="text-center">freeDSP family overview</h1>
+      <div class="row">
+
+      <div class="table-responsive">
+        <table summary="This table gives an overview of all existing freeDSP boards." class="table table-hover">
+          <!--<caption class="text-center"><h3>Main boards</h3></caption>-->
+          <thead>
+             <tr class="removeTableBorderTopAndBottom">
+              <td colspan="10" class="text-center"><br><h3>Main boards</h3></td>
+            </tr>
+            <tr>
+              <th>freeDSP</th>
+              <th>In</th>
+              <th>Out</th>
+              <th>Status</th>
+              <th>Source</th>
+              <th>Parts</th>
+              <th>Documentation</th>
+              <th width="200px">Compatibility</th> <!-- FIXED WIDTH ??? -->
+              <th>Notes</th>
+              <th>Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div rel="popover" data-img="images/freeDSP_1_0_features.gif"><strong>CLASSIC</strong></div></td>
+              <td><div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="2 x Analog IN via Cinch">2 x RCA</div></td>
+              <td><div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="4 x Analog OUT via Cinch">4 x RCA</div></td>
+              <td><div class="box green">Ready</div></td>
+              <td><a href="https://github.com/freeDSP/freeDSP-CLASSIC" target="_blank">Eagle</a>, <a href="https://github.com/freeDSP/freeDSP-CLASSIC/tree/master/SOURCES/ARDUINO" target="_blank">Arduino</a></td>
+              <td><a href="http://www.reichelt.de/?ACTION=20;AWKID=1038022;PROVID=2084" target="_blank">Reichelt</a>, <a href="http://www.digikey.de/short/3b7fqr" target="_blank">Digikey</a></td>
+              <td><a href="https://docs.google.com/document/d/1gQ5PzCN1hFmIgi31e2L5NF1VgZXVvlqLSrGzaxm_bFE/edit?usp=sharing" target="_blank">Getting started</a></td>
+              <td>Only freeDSPx AES/SPDIF IN</td>
+              <td>ADAU1701</td>
+              <td><a href="https://www.ebay-kleinanzeigen.de/s-bestandsliste.html?userId=60994757" target="_blank">60€ buy here</a></td><!---->
+           
+            <tr>
+              <td><strong>CLASSIC SMD B</strong></td>
+              <td><div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="2 x Analog IN via Cinch">2 x RCA</div></td>
+              <td><div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="4 x Analog OUT via Cinch">4 x RCA</div></td>
+              <td><div class="box green">Ready</div></td>
+              <td><a href="https://github.com/freeDSP/freeDSP-CLASSIC-SMD-B" target="_blank">KiCad</a></td>
+              <td><a href="http://www.digikey.de/short/3130dp" target="_blank">Digikey</a></td>
+              <td><a href="https://docs.google.com/document/d/1K3joEg4iIRMazfqGLaVoBdybitr4o_KIVZfQ-qeNDzs/edit?usp=sharing" target="_blank">Getting started</a></td>
+              <td><a href="https://github.com/freeDSP/WIKI-AND-GENERAL-TOPICS/wiki/freeDSP-Guidelines" target="_blank">4 I²S expansion connectors</a></td>
+              <td>ADAU1701</td>
+              <td><a href="https://www.evenelements.com/shop" target="_blank">15€ - 80€ buy here</a></td>
+            </tr>
+            
+             <tr>
+              <td><strong>CLASSIC SMD A/B</strong></td>
+              <td><div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="2 x Analog IN via Cinch">2 x RCA</div></td>
+              <td><div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="4 x Analog OUT via Cinch">4 x RCA</div></td>
+              <td><div class="box green">Ready</div></td>
+              <td><a href="https://github.com/CyberPit/FreeDSP-FreeDSP_SMD_AB" target="_blank">KiCad</a></td>
+              <td><a href="" target="_blank"></a></td>
+              <td><a href="https://cyberpithilo.web.fc2.com/audio/freedsp/index.html" target="_blank">Project website</a></td>
+              <td><div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="SMD resisistors, through-hole Ele-Caps, Unity Gain I/O, Absolute Phase transparent, Power ON/OFF Audio Mute, Buffered I2S I/O Headers, Three Semi-Potentiometers on board or External via header pin"><a href="https://github.com/freeDSP/WIKI-AND-GENERAL-TOPICS/wiki/freeDSP-Guidelines" target="_blank">1 I²S connector,</a> selectable boot EEPROMs</div></td>
+              <td>ADAU1701</td>
+              <td><a href="https://www.seeedstudio.com/FreeDSP-SMD-A-B-ADAU1701-1401-Audio-DSP-Processing-Boar-g-1230721" target="_blank">buy @ SeedStudio</a></td>
+            </tr>
+
+            <tr>
+              <td><strong>ALLinONE</strong></td>
+              <td><div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="2 x Analog IN via Cinch + S/PDIF via RCA and TOSLINK">2 x RCA,<br> S/PDIF</div></td>
+              <td><div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="4 x OUT (0.1% THD @12W 4Ω) via Screw Terminal + S/PDIF via RCA and TOSLINK (+ copied Analog OUT via PIN STRIP)">AMP 4x12W,<br> S/PDIF</div></td>
+              <td><div class="box green">Ready</div></td>
+              <td><a href="https://github.com/freeDSP/freeDSP-ALLinONE" target="_blank">KiCad</a></td>
+              <td><a href="https://www.mouser.com/ProjectManager/ProjectDetail.aspx?AccessID=5c5f7288d7" target="_blank">Mouser</a></td>
+              <td><a href="https://docs.google.com/document/d/1258PKKEvrk1GpFIaAHhm8G6f0HHNBfSL8KVq2VGgUKc" target="_blank">Getting started</a></td>
+              <td><a href="https://github.com/freeDSP/WIKI-AND-GENERAL-TOPICS/wiki/freeDSP-Guidelines" target="_blank">1 I²S expansion connector</a></td>
+              <td>ADAU1701</td>
+              <td></td>
+            </tr>
+            
+                       
+             <tr>
+              <td><strong>PiDSP</strong></td>
+              <td>RasPi In, <div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="1 x In S/PDIF via TOSLINK">S/PDIF</div></td>
+              <td>RasPi Out, <div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="1 x Out S/PDIF via TOSLINK">S/PDIF</div></td>
+              <td><div class="box green">Beta-Ready</div><!--<div class="box red"><strong>NEW :-)</strong></div>--></td></td>
+              <td><a href="https://github.com/freeDSP/PiDSP" target="_blank">Altium</a></td>
+              <td><a href="https://github.com/freeDSP/PiDSP" target="_blank">BOM<a/></td>
+              <td><a href="https://docs.google.com/document/d/19vuj6VbJ9ktcaG_P7PJXTnH1ImkcPwiqC4xYBWqMJs8/edit?usp=sharing" target="_blank">Getting started</a></td>
+              <td><a href="https://github.com/freeDSP/WIKI-AND-GENERAL-TOPICS/wiki/freeDSP-Guidelines" target="_blank">3 I²S expansion connectors</a></td>
+              <td>ADAU1452</td>
+              <td></td>
+            </tr>
+            
+            <tr>
+              <td><strong>INSANITY</strong></td>
+              <td><div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="8 x In Unbalanced via 6.35 mm Stereo Jack">8 x Unbal</div>
+              <div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="1 x In S/PDIF via RCA & TOSLINK">1 x S/PDIF</div></td>
+              <td><div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="8 x Out Unbalanced via 6.35 mm Stereo Jack">8 x Unbal</div>
+              <div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="1 x Out S/PDIF via RCA & TOSLINK">1 x S/PDIF</div></td>
+              <td><div class="box green">Beta-Ready</div><!--<div class="box orange">Prep</div>--></td>
+              <td><a href="https://github.com/freeDSP/freeDSP-INSANITY" target="_blank"></a>KiCad</td>
+              <td></td>
+              <td></td>
+              <td><a href="https://github.com/freeDSP/WIKI-AND-GENERAL-TOPICS/wiki/freeDSP-Guidelines" target="_blank">3 I²S expansion connectors</a></td>
+              <td>ADAU1452</td>
+              <td></td>
+            </tr>
+  
+  			<tr>
+              <td><strong>AURORA</strong></td>
+			  <td colspan="2">
+              <div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="">USB Audio Class2 8ch IO<br>8 x Analog Bal IO<br>S/P-DIF IO<br>ADAT IO<br>Wordclock IO<br>WiFi+BT control</div></td>
+              <td><div class="box green">Beta-Ready</div><!--<div class="box orange">Prep</div>--></td>
+              <td><a href="https://github.com/freeDSP/freeDSP-AURORA" target="_blank">KiCad</a></td>
+              <td><a href="" target="_blank"></a></td>
+              <td><a href="https://github.com/freeDSP/freeDSP-aurora/blob/release/0.9.0/DOCUMENTATION/GettingStarted.pdf" target="_blank">Getting started</a></td>
+              <td><a href="https://github.com/freeDSP/WIKI-AND-GENERAL-TOPICS/wiki/freeDSP-Guidelines" target="_blank">1 I²S expansion connectors</a></td>
+              <td>ADAU1452,<br>XMOSXE216,<br>ESP32</td>
+              <!--<td><a href="" target="_blank">soon available</a></td>-->
+              <td><a href="https://www.kickstarter.com/projects/auverdion/freedsp-aurora-dsp?ref=discovery&term=aurora" target="_blank"><div class="box red">NOW ON KICK- STARTER</div></a></td>
+              <!--<td></td>-->
+            </tr>
+
+  			<tr>
+              <td><strong>INFINITAS</strong></td>
+			  <td colspan="2">
+              <div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="USB class 2 / max. 32 channels IO / 48 kHz using I²S expansion boards">32ch USB audio interface</div>
+              (expansion boards needed)<br>
+              <div data-toggle="popover" data-trigger="hover" data-placement="top">Wordclock IO</div>
+              <!--<div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="S/PDIF via ...">S/PDIF IO</div>--></td>
+              <td><div class="box green">Ready</div><!--<div class="box orange">Prep</div>--></td>
+              <td><a href="https://github.com/freeDSP/freeDSP-INFINITAS" target="_blank">KiCad</a></td>
+              <td><a href="https://www.digikey.de/short/j0q0mm" target="_blank">DigiKey</a></td>
+              <td><a href="https://github.com/freeDSP/freeDSP-INFINITAS/blob/master/DOCUMENTATION/GettingStarted.pdf" target="_blank">Getting started</a></td>
+              <td><a href="https://github.com/freeDSP/WIKI-AND-GENERAL-TOPICS/wiki/freeDSP-Guidelines" target="_blank">4 I²S expansion connectors</a></td>
+              <td colspan="2">DSP ADAU1452,<br>XMOS XE216,<br>FPGA MachXO2,<br><a href="https://www.tindie.com/products/auverdion/freedsp-infinitas/" target="_blank">buy @ tindie</a></td>
+              <!--<td></td>-->
+  			</tr>
+                          
+            <!--<tr>
+              <td><strong>LUMI&Egrave;RE</strong></td>
+              <td><div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="8 x In Balanced via Socket Stripe, Daughter Boards with XLR, Sub-D, Jack or Whatever">8 x Bal</div>
+              <div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="2 x In ADAT via TOSLINK">2 x ADAT Wordclock</div></td>
+              <td><div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="8 x Out Balanced via Socket Stripe, Daughter Boards with XLR, Sub-D, Jack or Whatever">8 x Bal</div></td>
+              <td><div class="box orange">Prep</div></td>
+              <td><a href="https://github.com/freeDSP/freeDSP-INSANITY" target="_blank"></a>KiCad</td>
+              <td></td>
+              <td></td>
+              <td><a href="https://github.com/freeDSP/WIKI-AND-GENERAL-TOPICS/wiki/freeDSP-Guidelines" target="_blank">2 I²S expansion connectors</a></td>
+              <td>ADAU1452, Arduino integrated</td>
+              <td></td>
+            </tr>-->
+                        
+            <tr>
+              <td><strong>nanoDSP</strong></td>
+              <td><div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="2Vrms, 2 x Analog In via RCA or Screwterminals, alternatively 1 x Balanced In/Loopthrough out via XLR">2 x Analog</div></td>
+              <td><div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="2Vrms, 4 x Analog Out via RCA or Screwterminals, alternatively 2 x Balanced Out via XLR">4 x Analog</div></td>
+              <td><div class="box green">Ready</div></td></td>
+              <td>Not available</td><!--Eagle-->
+              <td></td>
+              <td><a href="https://drive.google.com/file/d/0Bx9YeifwIPQjQV9qQl8wb2VMWUE/view?usp=sharing" target="_blank">Getting started</a></td>
+              <td>No expansion header</td><!--options: 1 potmeter, bicolor led driver-->
+              <td>ADAU1701</td>
+              <td><a href="https://www.htfelectronics.nl/nl/nano-dsp.html" target="_blank">60 € + TH parts</a></td>
+            </tr>
+           
+            <tr>
+              <td><strong>CLASSIC SMD A</strong></td>
+              <td><div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="2 x Analog IN via 3,5 mm Stereo Jack">2 x Analog</div></td>
+              <td><div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="4 x Analog OUT via 3,5 mm Stereo Jack">4 x Analog</div></td>
+              <td><div class="box green">Ready</div></td>
+              <td><a href="https://github.com/freeDSP/freeDSP-CLASSIC-SMD-A" target="_blank">KiCad</a></td>
+              <td></td>
+              <td></td>
+              <td>freeDSPx <nobr>AES/SPDIF IN</nobr>, ... </td>
+              <td>ADAU1701</td>
+              <td></td>
+            </tr>
+            
+            <tr>
+              <td><strong>CLASSIC BAL A</strong></td>
+              <td><div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="2 x Analog IN via terminal block connector">2 x Bal</div></td>
+              <td><div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="4 x Analog OUT via terminal block connector">4 x Bal</div></td>
+              <td><div class="box green"><nobr>Ready</nobr></div></td>
+              <td><a href="https://github.com/freeDSP/freeDSP-CLASSIC-SMD-BALANCED" target="_blank">KiCad</a></td>
+              <td></td>
+              <td></td>
+              <td><a href="https://github.com/freeDSP/WIKI-AND-GENERAL-TOPICS/wiki/freeDSP-Guidelines" target="_blank">1 I²S expansion connector</a></td><!--I²S MicroMatch-Header-->
+              <td>ADAU1701</td>
+              <td></td>
+            </tr>
+            
+
+          
+          
+            
+           </tbody>
+            
+            <tr class="removeTableBorderTopAndBottom">
+              <td colspan="10" class="text-center"><br><h3>Programmer</h3></td>
+            </tr>
+            
+            <thead>
+            <tr>
+              <th>Name</th>
+              <th>In</th>
+              <th>Out</th>
+              <th>Status</th>
+              <th>Source</th>
+              <th>Parts</th>
+              <th>Documentation</th>
+              <th width="200px">Compatibility</th> <!-- FIXED WIDTH ??? -->
+              <th>Notes</th>
+              <th>Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+             <tr>
+              <td><div rel="popover" data-img="images/freeUSBi.jpg"><strong>freeUSBi + <nobr>EZ-USB</nobr></strong></div></td>
+              <td>USB</td>
+              <td>-</td>
+              <td><div class="box green">Ready</div></td></td>
+              <td><a href="https://github.com/freeDSP/freeUSBi" target="_blank">KiCad</a>, <a href="https://github.com/freeDSP/freeUSBi/tree/master/SOURCES/DRIVERS" target="_blank">Drivers</a></td>
+              <td><a href="https://secure.reichelt.de/index.html?&ACTION=20&AWKID=1109732&PROVID=2084" target="_blank">Reichelt</a>, <a href="http://www.digikey.com/short/3bprrq" target="_blank">Digikey</a></td>
+              <td><a href="https://docs.google.com/document/d/1rKkCl3gyePwX15c3sjEIKP6Bb7CO77hgRAXtbYz5hA0/edit?usp=sharing" target="_blank">Getting started</a></td>
+              <td>All freeDSP boards</td>
+              <td colspan="2"><a href="https://www.ebay-kleinanzeigen.de/s-anzeige/freeusbi-bausatz-kit-fuer-freedsp/1032026859-168-3846" target="_blank">20€ buy here</a> or <a href="https://www.ebay-kleinanzeigen.de/s-bestandsliste.html?userId=60994757" target="_blank">here</a></td>
+            </tr>
+                        </tr>
+          </thead>
+          <tbody>
+             <tr>
+              <td><div rel="popover" data-img="images/freeDSP_SigmaLink_USBi.jpg"><strong>SigmaLink USBi</strong></div></td>
+              <td>USB</td>
+              <td>-</td>
+              <td><div class="box green">Ready</div></td></td>
+              <td><a href="https://github.com/freeDSP/SigmaLink-USBi" target="_blank">KiCad</a></td>
+              <td>-</td>
+              <td><a href="https://docs.google.com/document/d/13BDac6Mss2I0CBOsSrk4YG-c8GQUpgU41vkwsMnYBss/edit?usp=sharing" target="_blank">Getting started</a></td>
+              <td>All freeDSP boards</td>
+              <td colspan="2"><a href="https://www.tindie.com/products/maxtch/sigmalink-usbi/" target="_blank">$28.50 + shipping buy here</a></td>
+            </tr>
+          </tbody>
+          
+            <tr class="removeTableBorderTopAndBottom">
+              <td colspan="10" class="text-center"><br><h3>IO expansions</h3></td>
+            </tr>
+          
+          <thead>
+            <tr>
+              <th><strong>freeDSP<span class="highlight1">x</span></strong></th>
+              <th>In</th>
+              <th>Out</th>
+              <th>Status</th>
+              <th>Source</th>
+              <th>Parts</th>
+              <th>Documentation</th>
+              <th width="200px">Compatibility</th> <!-- FIXED WIDTH ??? -->
+              <th>Notes</th>
+              <th>Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+          
+            <tr>
+              <td><strong>AnalogIO x8</strong></td>
+              <td colspan="2"><div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="8 balanced analog inputs and outputs via SUB-D with Tascam pin layout, each channel +6dBu
+">8 x Analog IO +6dBu</div></td>
+              <td><div class="box green">Ready</div></td>
+              <td><a href="https://github.com/freeDSP/freeDSPx-AnalogIO-x8" target="_blank">KiCAD</a></td>
+              <td><a href="https://www.digikey.de/short/jnn2np " target="_blank">Digikey</a></td>
+              <td><a href="https://github.com/freeDSP/freeDSPx-AnalogIO-x8/blob/develop/DOCUMENTATION/GettingStarted.pdf" target="_blank">Getting started</a></td>
+              <td><a href="https://github.com/freeDSP/WIKI-AND-GENERAL-TOPICS/wiki/freeDSP-Guidelines" target="_blank">I²S expansion connector</a></td>
+              <td colspan="2"><a href="https://www.tindie.com/products/auverdion/freedspx-analogio-x8/" target="_blank">15$ buy @ tindie</a></td>
+            </tr> 
+            
+            <tr>
+              <td><div rel="popover" data-img="images/freeDSPx-AES-SPDIF-IN.jpg"><strong>AES/SPDIF IN</strong></div></td>
+              <td><div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="1 x In AES/EBU via XLR socket + 1 x In S/PDIF via RCA (Cinch)">1 x AES/EBU<br>1 x S/PDIF</div></td>
+              <td>-</td>
+              <td><div class="box green">Ready</div></td>
+              <td><a href="https://github.com/freeDSP/freeDSPx-AES-SPDIF-IN" target="_blank">Eagle</a></td>
+              <td><a href="https://github.com/freeDSP/freeDSPx-AES-SPDIF-IN/tree/master/PART%20LIST" target="_blank">Excel</a></td>
+              <td><a href="https://docs.google.com/open?id=1klaNH2u24zRKs_nh_jul-xbZ4rEBayKxEizu10gGNMk" target="_blank">Getting started</a></td>
+              <td>Only freeDSP CLASSIC</td>
+              <td></td>
+              <td></td>
+            </tr>  
+			
+            <tr>
+              <td><strong>UNBAL OUT x8</strong></td>
+              <td>-</td>
+              <td><div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="8 x Analog OUT via 3,5 mm Stereo Jack"><nobr>8 x Analog</nobr></div></td>
+              <td><div class="box green">Tested</div></td>
+              <td><a href="https://github.com/freeDSP/freeDSPx-UNBAL-OUT-x8" target="_blank">KiCad</a></td>
+              <td></td>
+              <td></td>
+              <td>Only freeDSP CLASSIC SMD <strong>A</strong></td>
+              <td></td>
+              <td></td>
+            </tr> 
+            
+            <tr>
+              <td><strong>UNBAL IN x8</strong></td>
+              <td><div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="8 x Analog IN via 3,5 mm Stereo Jack">8 x Analog</div></td>
+              <td>-</td>
+              <td><div class="box green">Tested</div></td>
+              <td><a href="https://github.com/freeDSP/freeDSPx-UNBAL-IN-x8" target="_blank">KiCad</a></td>
+              <td></td>
+              <td></td>
+              <td>Only freeDSP CLASSIC SMD <strong>A</strong></td>
+              <td></td>
+              <td></td>
+            </tr>
+			
+            <tr>
+              <td><div rel="popover" data-img="images/"><strong>STANDARD CONNECTOR ADAPTER</strong></div></td>
+              <td colspan="2"><a href="https://github.com/freeDSP/WIKI-AND-GENERAL-TOPICS/wiki/freeDSP-Guidelines" target="_blank">4 x I²S expansion connectors for in and out</a></td>
+              <!--<td><div class="box orange">Prep</div></td>-->
+              <td><div class="box green"><nobr>Ready</nobr></div></td>
+              <td><a href="https://github.com/freeDSP/freeDSP-StdConnectorAdapter" target="_blank">KiCad</a></td>
+              <td><a href="https://www.reichelt.de/my/1322859" target="_blank">Reichelt</a></td>
+              <td><a href="https://docs.google.com/document/d/1hn0SlT0MzGtAtfOlIJ-imr8tRVwPhUQNysTME_q8S0M/edit?usp=sharing" target="_blank">Getting started</a></td>
+              <td colspan="2">Adapter of the old freeDSP CLASSIC pin header to the new freeDSP <a href="https://github.com/freeDSP/WIKI-AND-GENERAL-TOPICS/wiki/freeDSP-Guidelines" target="_blank">I²S connector</a>.</td>
+              
+              <td></td>
+            </tr>  
+             
+            <tr>
+              <td><strong>AMP x2</strong></td>
+              <td><a href="https://github.com/freeDSP/WIKI-AND-GENERAL-TOPICS/wiki/freeDSP-Guidelines" target="_blank">I²S expansion connector</a></td>
+              <td>2 x Terminal Block</td>
+              <td><div class="box green">Ready</div></td>
+              <td><a href="https://github.com/freeDSP/freeDSPx-AMP-x2" target="_blank">KiCad</a></td>
+              <td><a href="http://www.mouser.com/ProjectManager/ProjectDetail.aspx?AccessID=41f46da3ff" target="_blank">Mouser</a></td>
+              <td><a href="https://docs.google.com/document/d/1llKBINu6W2MGQ0nZzaExk8-fQ7l8HOFVpu1stu-M4eY/edit?usp=sharing">Getting Started</a></td>
+              <td><a href="https://github.com/freeDSP/WIKI-AND-GENERAL-TOPICS/wiki/freeDSP-Guidelines" target="_blank">I²S expansion connector</a></td>
+              <td>0.1% THD @12W 4Ω</td>
+              <td></td>
+            </tr> 
+            
+            <tr>
+              <td><strong>AMP x4</strong></td>
+              <td><a href="https://github.com/freeDSP/WIKI-AND-GENERAL-TOPICS/wiki/freeDSP-Guidelines" target="_blank">I²S expansion connector</a></td>
+              <td>4 x Terminal Block</td>
+              <td><div class="box green">Ready</div></td>
+              <td><a href="https://github.com/freeDSP/freeDSPx-AMP-x4" target="_blank">KiCad</a></td>
+              <td><a href="https://www.mouser.de/ProjectManager/ProjectDetail.aspx?AccessID=af1cc43262" target="_blank">Mouser</a></td>
+              <td><a href="https://docs.google.com/document/d/1tbhADnNkIt9oIQV_oO-B78TdL-QS84C08iAzlXl_Vq0/edit?usp=sharing">Getting Started</a></td>
+              <td><a href="https://github.com/freeDSP/WIKI-AND-GENERAL-TOPICS/wiki/freeDSP-Guidelines" target="_blank">I²S expansion connector</a>, two AMPs can be used on one I²S TDM 8 output</td>
+              <td>0.1% THD @12W 4Ω</td>
+              <td></td>
+            </tr> 
+            
+            <tr>
+              <td><strong>USB x2</strong></td>
+              <td>USB</td>
+              <td>I²S</td>
+              <td><div class="box green">Tested</div></td>
+              <td><a href="https://github.com/freeDSP/freeDSPx-USB-x2" target="_blank">Source</a></td>
+              <td></td>
+              <td><a href="https://docs.google.com/document/d/13oAXWgiXSXEbWXAHb1hUmKvv9-sQnAzZGHgO0yWrQ98/edit?usp=sharing">Getting Started<br>(only German)</a></td>
+              <td></td>
+              <td>PSoC5LP</td>
+              <td><a href="http://www.cypress.com/documentation/development-kitsboards/cy8ckit-059-psoc-5lp-prototyping-kit-onboard-programmer-and" target="_blank">Cypress devboard 10 €</a></td>
+            </tr> 
+ 
+            <tr>
+              <td><strong>SPDIF IO</strong></td>
+              <td><div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="1 x In SPDIF via RCA & Toslink">1 x S/PDIF</div></td>
+              <td><div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="1 x Out SPDIF via RCA & Toslink">1 x S/PDIF</div></td>
+              <td><div class="box red">Help wanted</div></td>
+              <td><a href="https://github.com/freeDSP/freeDSPx-SPDIF-IO" target="_blank">KiCad</a></td>
+              <td></td>
+              <td></td>
+              <td><a href="https://github.com/freeDSP/WIKI-AND-GENERAL-TOPICS/wiki/freeDSP-Guidelines" target="_blank">I²S expansion connector</a></td>
+              <td></td>
+              <td></td>
+            </tr>
+                                    
+            <tr>
+              <td><strong>ADAT IO x4</strong></td>
+              <td><div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="4 x In ADAT via Toslink">4 x ADAT</div></td>
+              <td><div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="4 x Out ADAT via Toslink">4 x ADAT</div></td>
+              <td><div class="box orange">Prep</div></td>
+              <td><a href="https://github.com/freeDSP/freeDSPx-ADAT-IO-x4" target="_blank">KiCad, VHDL</a></td>
+              <td></td>
+              <td></td>
+              <td><a href="https://github.com/freeDSP/WIKI-AND-GENERAL-TOPICS/wiki/freeDSP-Guidelines" target="_blank">I²S expansion connector</a></td>
+              <td></td>
+              <td></td>
+            </tr>
+                        
+            <!--<tr>
+              <td><strong>BAL IO x4</strong></td>
+              <td><div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="4 x In Balanced Analog via 6.35 mm Stereo Jack, alt. 8 In Unbal.">4 x Analog</div></td>
+              <td><div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="4 x Out Balanced Analog via 6.35 mm Stereo Jack, alt. 8 Out Unbal.">4 x Analog</div></td>
+              <td><div class="box red">Help wanted</div></td>
+              <td><a href="" target="_blank"></a></td>
+              <td></td>
+              <td></td>
+              <td><a href="https://github.com/freeDSP/WIKI-AND-GENERAL-TOPICS/wiki/freeDSP-Guidelines" target="_blank">I²S expansion connector</a></td>
+              <td></td>
+              <td></td>
+            </tr> -->
+            
+            <tr>
+              <td><strong>UNBAL IO x2</strong></td>
+              <td><div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="2 x Analog In via RCA (Cinch)">2 x RCA</div></td>
+              <td><div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="2 x Analog Out via RCA (Cinch)">2 x RCA</div></td>
+              <td><div class="box red">Help wanted</div></td>
+              <td><a href="" target="_blank"></a></td>
+              <td></td>
+              <td></td>
+              <td><a href="https://github.com/freeDSP/WIKI-AND-GENERAL-TOPICS/wiki/freeDSP-Guidelines" target="_blank">I²S expansion connector</a></td>
+              <td>Maybe 4 Out</td>
+              <td></td>
+            </tr> 
+                       
+            <tr>
+              <td><strong>BAL OUT x16</strong></td>
+              <td>-</td>
+              <td><div data-toggle="popover" data-trigger="hover" data-placement="top" data-content="16 x Balanced Out Analog via SUB-D">16 x Analog</div>
+              <td><div class="box orange">Prep</div></td>
+              <td><a href="" target="_blank"></a>KiCad</td>
+              <td></td>
+              <td></td>
+              <td><a href="https://github.com/freeDSP/WIKI-AND-GENERAL-TOPICS/wiki/freeDSP-Guidelines" target="_blank">I²S expansion connector</a></td>
+              <td></td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td><strong>PHONES AMP</strong></td>
+              <td>-</td>
+              <td>1 x Jack <nobr>6,35 mm</nobr></td>
+              <td><div class="box orange">Prep</div></td>
+              <td><a href="" target="_blank"></a>KiCad</td>
+              <td></td>
+              <td></td>
+              <td><a href="https://github.com/freeDSP/WIKI-AND-GENERAL-TOPICS/wiki/freeDSP-Guidelines" target="_blank">I²S expansion connector</a></td>
+              <td></td>
+              <td></td>
+            </tr> 
+            
+            <tr>
+              <td><strong>HDMI IO</strong></td>
+              <td>< 4 x HDMI</td>
+              <td>1 x HDMI</td>
+              <td><div class="box red">Help wanted</div></td>
+              <td><a href="" target="_blank"></a></td>
+              <td></td>
+              <td></td>
+              <td><a href="https://github.com/freeDSP/WIKI-AND-GENERAL-TOPICS/wiki/freeDSP-Guidelines" target="_blank">I²S expansion connector</a></td>
+              <td></td>
+              <td></td>
+            </tr> 
+            
+            <tr>
+              <td><strong>DOLBY/DTS/AC3 IO</strong></td>
+              <td>1 x Toslink</td>
+              <td>1 x Toslink</td>
+              <td><div class="box red">Help wanted</div></td>
+              <td><a href="" target="_blank"></a></td>
+              <td></td>
+              <td></td>
+              <td><a href="https://github.com/freeDSP/WIKI-AND-GENERAL-TOPICS/wiki/freeDSP-Guidelines" target="_blank">I²S expansion connector</a></td>
+              <td></td>
+              <td></td>
+            </tr> 
+                                  
+          </tbody>
+          <!--<tfoot>
+            <tr>
+              <td colspan="10" class="text-center">Some text.</td>
+            </tr>
+          </tfoot>-->
+        </table>
+      </div><!--end of .table-responsive-->
+
+      </div><!-- /row -->
+    </div><!-- /container -->
+  </section>
+
+   <!--////////// QUOTE SECTION //////////-->
+  <section id="quote">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <p class="lead text-center">The freeDSP is so cool. :-)</p>
+        </div><!-- /col-md-10 -->
+      </div><!-- /row -->
+    </div><!-- /container -->
+  </section>
+
+  <!--////////// APPLCATIONS SECTION //////////-->
+  <section id="section-applications">
+    <div class="container">
+      <div class="row">
+        <h1 class="text-center">Application notes</h1>
+        <nav role="navigation">
+            <div class="filters-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".filters-collapse">
+                <span data-icon="&#xf00b;" aria-hidden="true"></span>
+              </button>
+            </div><!-- /filters-header -->
+            <div id="filters-nav" class="collapse navbar-collapse filters-collapse clearfix">
+              <!-- Isotope Filters -->
+              <!--
+              <ul class="filters">
+                <li><a href="#filter" data-filter="*">all</a></li>
+                <li><a href="#filter" data-filter=".effects">microcontroller</a></li>
+                <li><a href="#filter" data-filter=".loudspeakers">loudspeakers</a></li>
+                <li><a href="#filter" data-filter=".roomEQ">room equalization</a></li>
+              </ul>
+              -->
+            </div><!-- /filters-nav -->
+        </nav>
+      </div><!-- /row -->
+      
+      <!-- ////////// APPLICATION ITEMS ////////// -->
+      <div class="applications-items clearfix">          
+        <!-- ///// APPLICATION ITEM 1 ///// -->
+        <div class="col-md-4 col-sm-6 all SORTIERNAME1 SORTIERNAME2">
+          <div class="folio-item">
+            <a href="#folioItem1" data-toggle="modal">
+              <div class='folio-title'>
+                <p>Serial I2C communication with a freeDSP using a microcontroller</p>
+              </div>
+              <div class='folio-desc'>
+                <p>An I2C getting started guide.</p>
+              </div>
+              <img src="images/freeDSP-Arduino.jpg" alt="" title="" class="img-responsive" />    
+            </a>
+          </div>
+        </div><!-- /application-item -->
+          
+      <!-- ///// APPLICATION ITEM 1 MODAL WINDOW ///// -->
+      <div class="modal fade" id="folioItem1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <!-- Modal Title -->
+              <h4 class="modal-title">Serial I2C communication with a freeDSP using a microcontroller, e.g. an Arduino</h4>
+            </div>
+            <div class="modal-body">
+              <!-- Modal Content -->
+              <!--<div class="fitvids">
+                <iframe src="http://www.youtube.com/embed/8vDUtkF31B0" width="500" height="281" allowfullscreen></iframe>
+              </div> --> 
+
+               <div class="row">
+                <div class="col-md-12">
+                  <!--<h4>Serial communication with a freeDSP using a microcontroller</h4>-->
+                  <p> This getting started guide targets anyone, who wants to access registers and memory of the ADAU1701 via the I2C serial interface. At the end of the step-by-step guide we will know how the I2C interface works and how to address the DSP, its registers and memories and exchange data with them.</p>
+                </div>
+              </div><!-- /row -->
+            </div><!-- /modal-body -->
+            <div class="modal-footer">
+              <!-- Modal Footer -->
+              <a class="btn btn-info" href="https://docs.google.com/document/d/19Qx6xHxqvXIsfVEzXksVx0yJS99t_aFtP_f9C1I3j-c/edit?usp=sharing" target="_blank">Getting Started Guide</a>
+              <a class="btn btn-info" href="https://github.com/freeDSP/TUTORIAL-I2C" target="_blank">Files</a>
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div><!-- /modal-footer -->
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+      <!-- END OF MODAL WINDOW -->          
+          
+
+        <!-- ///// APPLICATION ITEM 5 ///// -->
+        <div class="col-md-4 col-sm-6 all SORTIERNAME1 SORTIERNAME2">
+          <div class="folio-item">
+            <a href="#folioItem5" data-toggle="modal">
+              <div class='folio-title'>
+                <p>Serial I2S audio transmission with the freeDSP</p>
+              </div>
+              <div class='folio-desc'>
+                <p>An I2S getting started guide.</p>
+              </div>
+              <img src="images/cloud-image-1.jpg" alt="" title="" class="img-responsive" />    
+            </a>
+          </div>
+        </div><!-- /application-item -->
+          
+      <!-- ///// APPLICATION ITEM 5 MODAL WINDOW ///// -->
+      <div class="modal fade" id="folioItem5" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <!-- Modal Title -->
+              <h4 class="modal-title">Serial I2S audio transmission with the freeDSP</h4>
+            </div>
+            <div class="modal-body">
+              <!-- Modal Content -->
+              <!--<div class="fitvids">
+                <iframe src="http://www.youtube.com/embed/8vDUtkF31B0" width="500" height="281" allowfullscreen></iframe>
+              </div> --> 
+
+               <div class="row">
+                <div class="col-md-12">
+                  <!--<h4>Serial communication with a freeDSP using a microcontroller</h4>-->
+                  <p>Multiple freeDSP modules enable digital audio transfer via serial data protocols. This document will give an overview of these protocols and will enable you to use them correctly.</p>
+                </div>
+              </div><!-- /row -->
+            </div><!-- /modal-body -->
+            <div class="modal-footer">
+              <!-- Modal Footer -->
+              <a class="btn btn-info" href="https://docs.google.com/document/d/1S74mOQIim-wwMh_L6k44ab7wNwmPWRSnGynF-zREvO4/edit?usp=sharing" target="_blank">Getting Started Guide</a>
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div><!-- /modal-footer -->
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+      <!-- END OF MODAL WINDOW -->          
+
+
+          
+        <!-- ///// APPLICATION ITEM 2 ///// -->
+        <div class="col-md-4 col-sm-6 all SORTIERNAME1 SORTIERNAME2">
+          <div class="folio-item">
+            <a href="#folioItem2" data-toggle="modal">
+              <div class='folio-title'>
+                <p>Hand soldering an ADAU1701</p>
+              </div>
+              <div class='folio-desc'>
+                <p>A video to show one option for hand soldering of an ADAU1701 (currently only in German language).</p>
+              </div>
+              <img src="images/freeDSP-soldering-ADAU1701" alt="" title="" class="img-responsive" />    
+            </a>
+          </div>
+        </div><!-- /application-item -->
+          
+
+      <!-- ///// APPLICATION ITEM 2 MODAL WINDOW ///// -->
+      <div class="modal fade" id="folioItem2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <!-- Modal Title -->
+              <h4 class="modal-title">Soldering an ADAU1701</h4>
+            </div>
+            <div class="modal-body">
+              <!-- Modal Content -->
+              <div class="fitvids">
+                <iframe src="http://www.youtube.com/embed/8vDUtkF31B0" width="500" height="281" allowfullscreen></iframe>
+              </div>  
+
+              <div class="row">
+                <div class="col-md-12">
+                  <h4>Description</h4>
+                  <p>The trickiest part when soldering a freeDSP CLASSIC by hand is the ADAU1701, which comes in an SMD QFP-44 packaging. Ludwig made a video to show the soldering process (currently only in German language). However, this is definitely not recommended for soldering beginners! If you are in doubt of your skills better wait for a freeDSP kit with preassembled SMD parts or a populated board.</p>
+                </div>
+              </div><!-- /row -->
+            </div><!-- /modal-body -->
+            <div class="modal-footer">
+              <!-- Modal Footer -->
+              <!--<a class="btn btn-info" href="#" target="_blank">Visit Website</a>-->
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div><!-- /modal-footer -->
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+      <!-- END OF MODAL WINDOW -->
+
+
+        <!-- ///// APPLICATION ITEM 3 ///// -->
+        <div class="col-md-4 col-sm-6 all SORTIERNAME1 SORTIERNAME2">
+          <div class="folio-item">
+            <a href="#folioItem3" data-toggle="modal">
+              <div class='folio-title'>
+                <p>freeDSP-PSoC project with SPI communication (only German)</p>
+              </div>
+              <div class='folio-desc'>
+                <p>Ein Beispielprojekt für ein Gitarreneffektgerät mit Quellcode</p>
+              </div>
+              <img src="images/PSoC.png" alt="" title="" class="img-responsive" />    
+            </a>
+          </div>
+        </div><!-- /application-item -->
+          
+      <!-- ///// APPLICATION ITEM 3 MODAL WINDOW ///// -->
+      <div class="modal fade" id="folioItem3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <!-- Modal Title -->
+              <h4 class="modal-title">PSoC project with SPI communication (only German)</h4><!--Beispielprojekt PSoC Effektgerät-->
+            </div>
+            <div class="modal-body">
+              <!-- Modal Content -->
+              <!--<div class="fitvids">
+                <iframe src="http://www.youtube.com/embed/8vDUtkF31B0" width="500" height="281" allowfullscreen></iframe>
+              </div> --> 
+
+               <div class="row">
+                <div class="col-md-12">
+                  <!--<h4>Serial communication with a freeDSP using a microcontroller</h4>-->
+                  <p> Das Ziel dieses Beispielprojektes ist es, die Kommunikation eines PSoCs mit dem freeDSP INSANITY zu erläutern. Dabei wird auf die Kommunikationsprotokolle SPI zurückgegriffen. Des Weiteren wird das allgemeine Vorgehen für die externe Steuerung des freeDSP mit dem PSoC erläutert. Die Funktionsweise der Kommunikation wird anhand eines praktischen Beispiels dargestellt. Dafür wird für eine E-Gitarre ein mittels eines kapazitiven Sliders gesteuertes Effektgerät mit einem Pitchshift (Vibrato) entwickelt.</p>
+                </div>
+              </div><!-- /row -->
+            </div><!-- /modal-body -->
+            <div class="modal-footer">
+              <!-- Modal Footer -->
+              <a class="btn btn-info" href="https://docs.google.com/document/d/1NZVZGZbZu6F0kRP7MKgHixTFQYY84EPQPjLj5SpUXc8/edit?usp=sharing" target="_blank">Project Documentation</a>
+              <a class="btn btn-info" href="https://github.com/freeDSP/PROJECT-PSoC-SPI" target="_blank">Files</a>
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div><!-- /modal-footer -->
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+      <!-- END OF MODAL WINDOW -->          
+
+        <!-- ///// APPLICATION ITEM 4 ///// -->
+        <div class="col-md-4 col-sm-6 all SORTIERNAME1 SORTIERNAME2">
+          <div class="folio-item">
+            <a href="#folioItem4" data-toggle="modal">
+              <div class='folio-title'>
+                <p>freeDSP classic case</p>
+              </div>
+              <div class='folio-desc'>
+                <p>A 3D-printed case for the freeDSP classic.</p>
+              </div>
+              <img src="images/freeDSPclassic_case.jpg" alt="" title="" class="img-responsive" />    
+            </a>
+          </div>
+        </div><!-- /application-item -->
+          
+      <!-- ///// APPLICATION ITEM 4 MODAL WINDOW ///// -->
+      <div class="modal fade" id="folioItem4" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <!-- Modal Title -->
+              <h4 class="modal-title">A 3D-printed case for the freeDSP classic.</h4>
+            </div>
+            <div class="modal-body">
+              <!-- Modal Content -->
+              <!--<div class="fitvids">
+                <iframe src="http://www.youtube.com/embed/8vDUtkF31B0" width="500" height="281" allowfullscreen></iframe>
+              </div> --> 
+
+               <div class="row">
+                <div class="col-md-12">
+                  <!--<h4>Serial communication with a freeDSP using a microcontroller</h4>-->
+                  <p>Thanks to Johann for the nice freeDSP classic case. The corresponding BLENDER, STL and OBJ files can be downloaded here for 3D printing. If you want the honey comb optic use a slicer like Slic3r.</p>
+                </div>
+              </div><!-- /row -->
+            </div><!-- /modal-body -->
+            <div class="modal-footer">
+              <!-- Modal Footer -->
+              <a class="btn btn-info" href="downloads/freeDSPcase.zip" target="_blank">STL + OBJ file</a>
+              <a class="btn btn-info" href="downloads/freeDSPcase.blend" target="_blank">Blender file</a>
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div><!-- /modal-footer -->
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+      <!-- END OF MODAL WINDOW -->           
+        
+        </div><!-- /col-md-4 col-sm-6 -->
+      </div><!-- /applications-items -->
+        
+    </div><!-- /container -->
+  </section>
+
+
+   <!--////////// QUOTE SECTION //////////-->
+  <section id="quote">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <!--<p class="lead text-center">Our <a href="https://www.reddit.com/r/diysound/">reddit "Ask Me Anything"</a> is live on Tuesday 13.06.17 18.oo - 20.oo CET. Ask us anything about this project. :-) </p>-->
+        </div><!-- /col-md-10 -->
+      </div><!-- /row -->
+    </div><!-- /container -->
+  </section>
+
+  <!--/////////// CONTACT SECTION ////////// -->
+  <section id="section-contact">
+    <div class="container">
+      <h1 class="text-center">Contact</h1>
+      <div class="row">
+        <div class="col-md-5 col-sm-7">
+          <h2 class="hidden-xs">Community</h2>
+          <p>If you'r having questions regarding programing with SigmaStudio, please go to the <a href="http://ez.analog.com/community/dsp/sigmadsp" target="_blank">Analog Devices support forum</a>.</p> <!--For feedback or other questions please fill out the contact form.-->
+          <hr class="visible-xs">
+
+          <p>If you'r having questions regarding the freeDSP board:
+            <ol>
+            	<li>Please take the time to carefully read the <a href="https://docs.google.com/document/d/1gQ5PzCN1hFmIgi31e2L5NF1VgZXVvlqLSrGzaxm_bFE/edit?usp=sharing" target="_blank">getting started guide</a> and have a look at the upcoming online application examples (coming soon).</li>
+            	<li>Maybe your issue has already been discussed in the freeDSP forum. There might already be a solution for the problem you are facing. Please use the ‘Digital Line Level’ subforum @ diyAudio.com to connect with other people working with the freeDSP. Please create individual threads for your topics. Link these threads in the <a href="http://www.diyaudio.com/forums/digital-line-level/285260-freedsp-main-thread.html" target="_blank">freeDSP main thread</a> - so that others can find them.</li>
+            	<li>Unfortunately, we cannot provide individual support via email or the contact form.  Please keep in mind that freeDSP is an open-source spare-time project and not a commercial product. Thank you for your understanding! Please ask your questions at <a href="http://www.diyaudio.com/forums/digital-line-level/" target="_blank">diyAudio.com</a> and link them within the man thread. <!-- If you post to a forum, please provide: 
+            		<ul>
+           				<li>The version of the freeDSP board you are working with. A good resolution photo of your soldered board from top and bottom. If you made some changes to the original design, please describe them in detail.</li>
+            			<li>A detailed and clear explanation of the symptoms you are seeing.</li>
+            			<li>A description of the troubleshooting steps you already performed and the results obtained.</li>
+           			</ul>-->
+            	</li>
+            </ol>
+		  </p>
+          
+          <p>
+          If you want to join the freeDSP team or want to improve the documentation or the website, drop us a line in the contact form. You can also propose your applications, extensions, ... to be added to this website. :-) <a href="https://github.com/freeDSP">GitHub</a> is used for file exchange. Most freeDSP PCBs will be designed using <a href="http://kicad-pcb.org" target="_blank">KiCad</a>. Some  guidelines were defined to make future freeDSP development and extensions as compatible as possible. These layout guidelines can be found in the <a href="https://github.com/freeDSP/WIKI-AND-GENERAL-TOPICS/wiki" target="_blank">freeDSP-Wiki</a>.
+          </p>
+                    
+          <div class="row">
+            <div class="col-md-4 col-xs-6 text-left">
+            </div>
+            <div class="col-md-4 col-xs-6 text-left">
+            </div>
+          </div><!-- /row -->
+
+          <div class="row">
+            <div class="col-md-4 col-xs-6 text-left">
+            </div>
+            <div class="col-md-8 col-xs-6">
+            </div>
+          </div><!-- /row -->
+
+          <div class="row">
+            <div class="col-md-4 col-xs-6 text-left">
+            </div>
+            <div class="col-md-8 col-xs-6">
+            </div>
+          </div><!-- /row -->
+        </div><!-- /col-md-5 -->
+
+        <div class="col-md-7 col-sm-5">
+          <!--////////// MAILCHIMP SIGNUP FORM STARTS HERE ///////////-->
+          <div class="contact-form">
+            <div class="form-horizontal">
+            
+            <div class="row">
+              <div class="col-md-3"></div>
+              <div class="col-md-9">
+            	<h2>Newsletter</h2>
+                <p>PLEASE (RE)SUBSCRIBE TO OUR NEWSLETTER.<br>ALL SUBSCRIPTIONS BEFORE 2019 ARE LOST!!!<br>They were deleted without notification because we did not spam our subscribers. Thank you MailChimp! We now use Mailman. :-)<p>
+              </div
+            ></div>
+
+              <div class="row">
+                <div class="form-group">
+                  <div id="mc_embed_signup">
+					<form action="https://mailman.zih.tu-dresden.de/groups/subscribe/aha-freedsp-news" method="post">
+                  <label for="mce-EMAIL" class="col-md-3 control-label">E-mail</label>
+                    <div class="col-md-9">
+                      <!-- <input type="Text" name="email" size="30"> -->
+                      <input type="email" class="form-control" value="" name="email" class="email" placeholder="Email Address" required>
+                      <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                        <div style="position: absolute; left: -5000px;"><input type="text" name="b_18cdd987e3a8b2d98ac8e2953_2e2ab9c3e6" tabindex="-1" value="">
+                        </div>
+             			<div class="clear"><button class="btn btn-large btn-primary contact-submit pull-right" type="submit" value="Abonnieren" name="email-button" class="button">Subscribe</button>  
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div><!-- end form-group -->
+              </div><!-- /row -->
+            </div>
+          </div><!-- /contact-form -->
+          
+          <!--////////// CONTACT FORM STARTS HERE ///////////-->
+          <div class="contact-form">
+            <form id="contact-form" class="form-horizontal">
+            
+            <div class="row">
+              <div class="col-md-3"></div>
+              <div class="col-md-9">
+            	<h2>Contact form</h2>
+              </div>
+            </div>
+            
+              <div class="row">
+                <div class="form-group">
+                  <label for="name" class="col-md-3 control-label">Name</label>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Mr. Early Adopter">
+                  </div>
+                </div><!-- end form-group -->
+              </div><!-- /row -->
+
+              <div class="row">
+                <div class="form-group">
+                  <label for="email" class="col-md-3 control-label">E-mail</label>
+                  <div class="col-md-9">
+                    <input type="text" class="form-control" id="email" name="email" placeholder="Email Address">
+                  </div>
+                </div><!-- end form-group -->
+              </div><!-- /row -->
+
+              <div class="row">
+                <div class="form-group textarea">
+                  <label for="message" class="col-md-3 control-label">Message</label>
+                  <div class="col-md-9">
+                    <textarea class="form-control" id="message" name="message" rows="8" placeholder="Type your message..."></textarea>
+                  </div>
+                </div><!-- end form-group -->
+                
+                <input type="hidden" name="save" value="contact">
+                <div id="contact-error" class="text-right"></div>
+                <button class="btn btn-large btn-primary contact-submit pull-right" type="submit" name="submit">Send Away!</button>
+              </div><!-- /row -->
+            </form>
+          </div><!-- /contact-form -->
+          <!-- ////////// END CONTACT FORM -->
+        </div><!-- /col-md-7 -->
+      </div><!-- /row -->
+    </div><!-- end container -->
+  </section>
+
+  <!--////////// FOOTER SECTION ///////////-->
+  <section id="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-3 col-sm-4">
+          <div class="footer-logo"><a href="http://www.ias.et.tu-dresden.de/ias/kommunikationsakustik/lehre/lautsprecher-ag-design-and-build/" target="_blank"><img src="images/logoTU_KA.svg" class="img-responsive" alt=""></a><!--<a href="http://www.tu-dresden.de"><img src="images/logoTUDresden.svg" class="img-responsive" alt=""></a>--></div>
+        </div>
+        
+        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 links">
+          <h3>Links</h3>
+          <ul class="footer-links text-center">
+            <li><a href="http://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0CB8QFjAA&url=http%3A%2F%2Fwww.dafx14.fau.de%2Fpapers%2Fdafx14_sebastian_merchel_freedsp_a_low_budget_ope.pdf&ei=ZGhNVMTPCcT5ygPT8oL4BQ&usg=AFQjCNH0kz5_FHK_8oozPSGomkUxyXhvbw&bvm=bv.77880786,d.bGQ" target="_blank">DAFx paper 2014</a></li>
+            <li><a href="https://github.com/freeDSP" target="_blank">freeDSP GitHub repository</a></li>
+            <li><a href="http://www.diyaudio.com/forums/digital-line-level/285260-freedsp-main-thread.html" target="_blank">freeDSP diyAudio forum</a></li>
+            <li><a href="https://github.com/freeDSP/WIKI-AND-GENERAL-TOPICS/wiki" target="_blank">freeDSP design guidelines</a></li>
+            <!--
+            <li><a href="#">Link 2</a></li>
+            <li><a href="#">Link 3</a></li>
+            <li><a href="#">Link 4</a></li>
+            <li><a href="#">Link 5</a></li>
+            <li><a href="#">Link 6</a></li>
+            <li><a href="#">Link 7</a></li>-->
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 links">
+          <h3>Downloads</h3>
+          <ul class="footer-links text-center">
+            <li>All source files, drivers, ... can be found in our freeDSP <a href="https://github.com/freeDSP" target="_blank">GitHub repository</a>. E.g., the freeUSBi drivers are now located <a href="https://github.com/freeDSP/freeUSBi/tree/master/SOURCES/DRIVERS" target="_blank">here</a>.</li>
+          </ul>
+        </div>
+        </div><!-- /col-lg-4 -->
+      </div><!-- end row -->
+    </div><!-- end container -->
+  </section><!-- end FOOTER SECTION -->
+
+  <!--////////// SUBFOOTER SECTION //////////-->
+  <section id="sub-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <p class="copyright">&copy; 2016 freeDSP. Contents of the website and freeDSP source files are licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/legalcode" target="_blank">Creative Commons Attribution Share-Alike 4.0 license</a>. Here is our <a href="disclaimer.html" target="_blank">Legal Disclosure and Privacy Statement</a>.</p>
+        </div>
+        <div class="col-lg-4">
+          <ul class="social-links">
+            <li><a href="http://creativecommons.org/licenses/by-sa/4.0/legalcode" target="_blank"><img src="images/creativecommons_cc.svg" alt=""></a></li>
+            <li><a href="http://creativecommons.org/licenses/by-sa/4.0/legalcode" target="_blank"><img src="images/creativecommons_by.svg" alt=""></a>
+            <li><a href="http://creativecommons.org/licenses/by-sa/4.0/legalcode" target="_blank"><img src="images/creativecommons_sa.svg" alt=""></a>
+          </ul>
+        </div><!-- /col-lg-4 -->
+      </div><!-- /row -->
+    </div><!-- /container -->
+  </section>
+
+  <!--////////// JAVASCRIPT FILES INCLUDES //////////-->
+  <script src="js/jquery.fitvids.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/waypoints.min.js"></script>
+  <script src="js/jquery.isotope.min.js"></script>
+  <script src="js/jquery.fitvids.min.js"></script>
+  <script src="assets/twitter/jquery.tweet.js"></script>
+  <script src="js/baseline.js"></script>
+  <script src="js/custom.js"></script>
+  </body>
+</html>

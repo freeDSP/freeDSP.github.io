@@ -1,10 +1,12 @@
 ---
 layout: post
 author: FreeDSP
+title: FreeDSP Programmer - SigmaLink USBi
+tags: FreeDSP Programmer SigmaLink USBi
 ---
 
-<h2>SigmaLink USBi</h2>
-<p>The SigmaLink USBi is a low-budget real-time programming device for the freeDSP and other DSP boards from Analog Devices. It is a new PCB design based on a CY7C68013 chip. It has the same features and pinout as the Analog Devices USB interface (EVAL-ADUSB2EBZ), such as changing parameters while already using the freeDSP or easy changes of the schematic in SigmaStudio. You also can write your program to the EEPROM when the write protect jumper is installed.</p>
+The SigmaLink USBi is a low-budget real-time programming device for the freeDSP and other DSP boards from Analog Devices. It is a new PCB design based on a CY7C68013 chip. It has the same features and pinout as the Analog Devices USB interface (EVAL-ADUSB2EBZ), such as changing parameters while already using the freeDSP or easy changes of the schematic in SigmaStudio. You also can write your program to the EEPROM when the write protect jumper is installed.
+
 <ul>
 <li>Status: Ready</li>
 <li>Input/Output: USBCompatibility: All freeDSP boards via USBi header</li>

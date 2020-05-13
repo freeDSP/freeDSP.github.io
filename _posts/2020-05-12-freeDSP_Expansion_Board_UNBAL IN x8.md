@@ -1,9 +1,12 @@
 ---
 layout: post
 author: FreeDSP
+title: freeDSP Expansion Board - UNBAL IN x8
+
 ---
-<h2>UNBAL IN x8</h2>
-<p>The freeDSP UNBAL OUT x8 offers 8 unbalanced inputs via a PCM1808 ADC.&nbsp;</p>
+
+The freeDSP UNBAL OUT x8 offers 8 unbalanced inputs via a PCM1808 ADC.&nbsp;
+
 <ul>
 <li>Status: Tested</li>
 <li>Integrated Chips: PCM1808&nbsp;</li>

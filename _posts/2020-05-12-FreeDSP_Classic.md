@@ -1,8 +1,9 @@
 ---
 layout: post
 author: FreeDSP
+title: freeDSP Mainboard - freeDSP CLASSIC
 ---
-freeDSP CLASSIC
+
 The freeDSP CLASSIC is based on Analog Devices’ ADAU1701 DSP. It is programmed using the freeUSBi, USBi programmer, or an Arduino Nano or Micro header. It features 2 RCA inputs and 4 RCA outputs. It is designed in EAGLE CAD, and includes source drivers for Arduino. 
 
 Status: Ready
@@ -18,3 +19,6 @@ PCB Source: Eagle
 Firmware/Software: Arduino
 Parts: Reichelt, Digikey
 Cost: 65€ buy here
+
+
+![image-title-here](https://freedsp.github.io/images/freeDSP_1_0_features.gif){:class="img-responsive"}

@@ -1,9 +1,11 @@
 ---
 layout: post
 author: FreeDSP
+title: freeDSP Expansion Board - AMP x2
 ---
-<h2>AMP x2</h2>
-<p style="text-align: justify;">The freeDSPx AMP x2 is a stereo class D amplifier module with an I&sup2;S input serial audio port. While it is primarily designed for the freeDSP, it can basically be used with any I&sup2;S source (such as Raspberry Pi etc). It comes as a bare circuit board without housing and can be incorporated into your own projects. The module is based on Texas Instruments&rsquo; <a href="http://www.ti.com/lit/ds/symlink/tas5760m.pdf" target="_blank" rel="noopener">TAS5760M</a> amplifier chip which converts the digital input signal directly to an amplified analog audio signal, and thus saves one step of conversion and possible source of quality loss.</p>
+
+The freeDSPx AMP x2 is a stereo class D amplifier module with an I&sup2;S input serial audio port. While it is primarily designed for the freeDSP, it can basically be used with any I&sup2;S source (such as Raspberry Pi etc). It comes as a bare circuit board without housing and can be incorporated into your own projects. The module is based on Texas Instruments&rsquo; <a href="http://www.ti.com/lit/ds/symlink/tas5760m.pdf" target="_blank" rel="noopener">TAS5760M</a> amplifier chip which converts the digital input signal directly to an amplified analog audio signal, and thus saves one step of conversion and possible source of quality loss.
+
 <ul>
 <li>Status: Ready</li>
 <li>Integrated Chips: <a href="http://www.ti.com/lit/ds/symlink/tas5760m.pdf" target="_blank" rel="noopener">TAS5760M</a></li>

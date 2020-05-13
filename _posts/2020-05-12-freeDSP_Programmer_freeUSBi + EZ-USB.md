@@ -1,10 +1,13 @@
 ---
 layout: post
-author: FreeDSP
+title: FreeDSP Programmer - freeUSBi + EZ-USB
+description: blablabla
+tags: FreeDSP Programmer freeUSBi EZ-USB
 ---
 
-<h2>freeUSBi + EZ-USB</h2>
-<p>The freeUSBi is a low-budget real-time programming device for the freeDSP and other DSP boards from Analog Devices. It is based on a CY7C68013A MINI BOARD combined with an adapter PCB (printed circuit board) that adds the possibility of realtime programming. It has the same features as the Analog Devices USB interface (EVAL-ADUSB2EBZ), such as changing parameters while already using the freeDSP or easy changes of the schematic in SigmaStudio. You also can write your program to the EEPROM.</p>
+
+The freeUSBi is a low-budget real-time programming device for the freeDSP and other DSP boards from Analog Devices. It is based on a CY7C68013A MINI BOARD combined with an adapter PCB (printed circuit board) that adds the possibility of realtime programming. It has the same features as the Analog Devices USB interface (EVAL-ADUSB2EBZ), such as changing parameters while already using the freeDSP or easy changes of the schematic in SigmaStudio. You also can write your program to the EEPROM.
+
 <ul>
 <li>Status: Ready</li>
 <li>Input/Output: USB</li>

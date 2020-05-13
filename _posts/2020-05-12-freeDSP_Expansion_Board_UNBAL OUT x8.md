@@ -1,9 +1,12 @@
 ---
 layout: post
 author: FreeDSP
+title: freeDSP Expansion Board - UNBAL OUT x8
 ---
-<h2>UNBAL OUT x8</h2>
-<p>The freeDSP UNBAL OUT x8 offers 8 unbalanced outputs via a PCM1681 DAC.&nbsp;</p>
+
+
+The freeDSP UNBAL OUT x8 offers 8 unbalanced outputs via a PCM1681 DAC.&nbsp;
+
 <ul>
 <li>Status: Tested</li>
 <li>Input: 0</li>

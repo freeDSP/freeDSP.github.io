@@ -1,10 +1,13 @@
 ---
 layout: post
-author: FreeDSP
+title: freeDSP Mainboard -  nanoDSP
+description: blablabla
+tags: freeDSP mainboard nanoDSP
 ---
 
-<h2>nanoDSP</h2>
-<p>The nanodsp is a flexible audio DSP board with 2 inputs and 4 outputs. By adding connectors of choice the user can customize the board to its liking. I can be used for stereo 2 in, 4 out signal processing or mono , balanced in signal processing. Outputs can be configured as 4 unbalanced or 2 balanced out. The boards are tested and have a test program that outputs 1 and 3 khz on 2 channels.</p>
+
+The nanodsp is a flexible audio DSP board with 2 inputs and 4 outputs. By adding connectors of choice the user can customize the board to its liking. I can be used for stereo 2 in, 4 out signal processing or mono , balanced in signal processing. Outputs can be configured as 4 unbalanced or 2 balanced out. The boards are tested and have a test program that outputs 1 and 3 khz on 2 channels.
+
 <ul>
 <li>Status: Ready</li>
 <li>DSP: ADAU1701</li>

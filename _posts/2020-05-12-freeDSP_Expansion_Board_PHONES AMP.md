@@ -1,9 +1,12 @@
 ---
 layout: post
 author: FreeDSP
+title: freeDSP Expansion Board - PHONES AMP
 ---
-<h2>PHONES AMP</h2>
-<p>This project lacks documentation. It&rsquo;s said to have 2 x analog headphone outputs using unknown chips.&nbsp;</p>
+
+
+This project lacks documentation. It&rsquo;s said to have 2 x analog headphone outputs using unknown chips.&nbsp;
+
 <ul>
 <li>Status: Prep</li>
 <li>Project Maintainer: UNKNOWN</li>

@@ -1,9 +1,12 @@
 ---
 layout: post
 author: FreeDSP
+title: freeDSP Mainboard - ALLinONE
+
 ---
-<h2>ALLinONE</h2>
-<p>The freeDSP ALLinONE is based on the ADAU1701, features a 4x12W speaker amplifier powered by a TAS5760M, and has an integrated Toslink In/Out. The device is programmed via USBi and includes a 5 pin Arduino connector. It is designed in KiCad.&nbsp;</p>
+
+The freeDSP ALLinONE is based on the ADAU1701, features a 4x12W speaker amplifier powered by a TAS5760M, and has an integrated Toslink In/Out. The device is programmed via USBi and includes a 5 pin Arduino connector. It is designed in KiCad.&nbsp;
+
 <ul>
 <li>Status: Ready</li>
 <li>DSP: ADAU1701</li>

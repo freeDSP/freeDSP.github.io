@@ -1,9 +1,11 @@
 ---
 layout: post
 author: FreeDSP
+title: freeDSP Expansion Board - HDMI IO
 ---
-<h2>HDMI IO</h2>
-<p>This project lacks documentation. It&rsquo;s said to have &lt; 4 x HDMI inputs and 1 x HDMI outputs using unknown chips.&nbsp;</p>
+
+This project lacks documentation. It&rsquo;s said to have &lt; 4 x HDMI inputs and 1 x HDMI outputs using unknown chips.&nbsp;
+
 <ul>
 <li>Status: Help Wanted</li>
 <li>Project Maintainer: UNKNOWN</li>

@@ -1,10 +1,11 @@
 ---
 layout: post
-author: FreeDSP
+author: FreeDSP\
+title: freeDSP Mainboard - CLASSIC SMD B
 ---
 
-<h2>freeDSP CLASSIC SMD B</h2>
-<p>The freeDSP CLASSIC SMB B is the same as the &ldquo;CLASSIC&rdquo; but with surface mount devices. The device is based on Analog Devices&rsquo; ADAU1701 DSP. It is programmed using the freeUSBi, USBi programmer, or a 6 pin Arduino header. It features 2 RCA inputs and 4 RCA outputs. It is designed in KiCad.&nbsp;</p>
+The freeDSP CLASSIC SMB B is the same as the &ldquo;CLASSIC&rdquo; but with surface mount devices. The device is based on Analog Devices&rsquo; ADAU1701 DSP. It is programmed using the freeUSBi, USBi programmer, or a 6 pin Arduino header. It features 2 RCA inputs and 4 RCA outputs. It is designed in KiCad.&nbsp;
+
 <ul>
 <li>Status: Ready</li>
 <li>DSP: ADAU1701</li>

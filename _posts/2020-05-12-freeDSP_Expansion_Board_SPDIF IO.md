@@ -1,8 +1,10 @@
 ---
 layout: post
 author: FreeDSP
+title: freeDSP Expansion Board - SPDIF IO
 ---
-<h2>SPDIF IO</h2>
+SPDIF IO
+
 <ul>
 <li>Status: Help Wanted</li>
 <li>Integrated Chips: TORX147 Fiber Optic Receiving Module, TOTX147 Fiber Optic Transmitting Module</li>

@@ -1,9 +1,12 @@
 ---
 layout: post
 author: FreeDSP
+title: freeDSP Expansion Board - DOLBY-DTS-AC3 IO
 ---
-<h2>DOLBY/DTS/AC3 IO</h2>
-<p>This project lacks documentation. It&rsquo;s said to have &lt; 4 x HDMI inputs and 1 x HDMI outputs using unknown chips.&nbsp;</p>
+
+
+This project lacks documentation. It&rsquo;s said to have &lt; 4 x HDMI inputs and 1 x HDMI outputs using unknown chips.&nbsp;
+
 <ul>
 <li>Status: Help Wanted</li>
 <li>Input: 1 x Toslink</li>

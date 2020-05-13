@@ -41,3 +41,4 @@ permalink: /about/
 </ul>
 <h1><a href="{{ site.baseurl }}/boards">freeDSP Project List</a></h1>
 <p style="text-align: justify;">The freeDSP is a cost-effective real-time audio signal processing solution for researchers and the do-it-yourself community. The freeDSP projects consist of freeDSP main boards, freeDSP programmers, and freeDSPx addon boards.&nbsp;</p>
+<p><a href="{{ site.baseurl }}/boards">View the FreeDSP Boards.</a></p>

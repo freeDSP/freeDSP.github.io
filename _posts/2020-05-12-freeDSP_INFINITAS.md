@@ -1,12 +1,11 @@
 ---
 layout: post
 author: FreeDSP
+title: freeDSP Expansion Board - Infinitas
 ---
-<h2>INFINITAS</h2>
-<p>Infinitas is a cost-effective USB Audio Class 2.0 solution for researchers and the do-it-yourself</p>
-<p>community. It is based on XMOS XE216-512-TQ128 together with additional</p>
-<p>expansion boards for audio i/o connectivity. It supports up to 32 input channels and up to 32</p>
-<p>output channels. The integrated ADAU1452 DSP is optional.&nbsp;</p>
+
+Infinitas is a cost-effective USB Audio Class 2.0 solution for researchers and the do-it-yourself community. It is based on XMOS XE216-512-TQ128 together with additional expansion boards for audio i/o connectivity. It supports up to 32 input channels and up to 32 output channels. The integrated ADAU1452 DSP is optional.&nbsp;
+
 <ul>
 <li>Status: Ready</li>
 <li>DSP: Optional ADAU1452</li>

@@ -1,9 +1,11 @@
 ---
 layout: post
 author: FreeDSP
+title: freeDSP Mainboard - CLASSIC BAL A
 ---
-<h2>CLASSIC BAL A</h2>
-<p>The freeDSP CLASSIC BAL A is a version of the classic freeDSP with balanced inputs and outputs.&nbsp;</p>
+
+The freeDSP CLASSIC BAL A is a version of the classic freeDSP with balanced inputs and outputs.&nbsp;
+
 <ul>
 <li>Status: Ready</li>
 <li>DSP: ADAU1701</li>

@@ -1,9 +1,12 @@
 ---
 layout: post
 author: FreeDSP
+title: freeDSP Expansion Board - AnalogIO x8
 ---
-<h2>2020-05-12-freeDSP_Expansion_Boards_AnalogIO x8</h2>
-<p><span style="color: #24292e;">The freeDSP AnalogIO x8 is an expansion board with 8 analog balanced inputs and 8 analog balanced outputs. The ADC part is based on the AKM AK5558, the DAC part is based on AKM AK4458. Both chips are providing state of the art conversion quality.&nbsp;</span></p>
+
+The freeDSP AnalogIO x8 is an expansion board with 8 analog balanced inputs and 8 analog balanced outputs. The ADC part is based on the AKM AK5558, the DAC part is based on AKM AK4458. Both chips are providing state of the art conversion quality.&nbsp;
+
+
 <ul>
 <li>Status: Ready</li>
 <li>Inputs: 8 balanced or unbalanced via new &ldquo;FreeDSPio&rdquo; connector or Sub-D25.</li>

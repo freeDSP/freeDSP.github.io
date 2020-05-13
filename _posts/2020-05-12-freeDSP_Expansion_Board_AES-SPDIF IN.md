@@ -1,9 +1,12 @@
 ---
 layout: post
 author: FreeDSP
+title: freeDSP Expansion Board - AES-SPDIF IN
 ---
-<h2>AES/SPDIF IN</h2>
-<p style="text-align: justify;">The freeDSPx AES/SPDIF IN is an expansion board for the freeDSP board to add digital inputs. It uses a high quality asynchronous sample rate converter (Cirrus Logic CS8422) to receive digital signals of any sample rate and resample them to the freeDSPs internal sampling frequency.&nbsp;</p>
+
+
+The freeDSPx AES/SPDIF IN is an expansion board for the freeDSP board to add digital inputs. It uses a high quality asynchronous sample rate converter (Cirrus Logic CS8422) to receive digital signals of any sample rate and resample them to the freeDSPs internal sampling frequency.&nbsp;
+
 <ul>
 <li>Status: Ready</li>
 <li>Input: 1 x AES/EBU, 1 x S/PDIF</li>

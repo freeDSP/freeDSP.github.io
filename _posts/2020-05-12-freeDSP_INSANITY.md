@@ -1,10 +1,12 @@
 ---
 layout: post
 author: FreeDSP
+title: freeDSP Expansion Board - INSANITY
 ---
 
-<h2>INSANITY</h2>
-<p>There is no currently available information regarding the freeDSP INSANITY.&nbsp;</p>
+There is no currently available information regarding the freeDSP INSANITY.
+
+
 <ul>
 <li>Status: Beta-Ready</li>
 <li>DSP: ADAU1452</li>
@@ -13,8 +15,8 @@ author: FreeDSP
 <li>Source: KiCad(unreleased)</li>
 <li>Expansion Connectors: 3 I&sup2;S expansion connectors</li>
 </ul>
-<h2>AURORA</h2>
-<p>The freeDSP AURORA is an advanced 8-channel DSP with awesome specs, unmatched versatility and real easy to control user interface. The board&rsquo;s DSP is powered by an ADAU1452, it has multichannel bidirectional USB streaming via XMOS, an integrated ESP32 Wifi/Bluetooth module, an AKM AK4458 8 channel DAC, anAKM AK5558 8-channel ADC, S/P-DIF receiver and transmitter, Worldclock input/output options,&nbsp;</p>
+AURORA
+The freeDSP AURORA is an advanced 8-channel DSP with awesome specs, unmatched versatility and real easy to control user interface. The board&rsquo;s DSP is powered by an ADAU1452, it has multichannel bidirectional USB streaming via XMOS, an integrated ESP32 Wifi/Bluetooth module, an AKM AK4458 8 channel DAC, anAKM AK5558 8-channel ADC, S/P-DIF receiver and transmitter, Worldclock input/output options,&nbsp;
 <ul>
 <li>Status: Beta-Ready</li>
 <li>DSP: ADAU1452</li>

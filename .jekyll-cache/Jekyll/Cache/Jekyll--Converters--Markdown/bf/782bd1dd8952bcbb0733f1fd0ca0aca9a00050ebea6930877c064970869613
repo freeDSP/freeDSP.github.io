@@ -1,4 +1,12 @@
-<h2>CLASSIC SMD A</h2>
+I"	
+<hr />
+<p>layout: post
+title: FreeDSP Mainboard - CLASSIC SMD A
+description: blablabla
+tags: FreeDSP Programmer freeUSBi EZ-USB
+—</p>
+
+<p>CLASSIC SMD A&lt;/h2&gt;</p>
 <p>The freeDSP CLASSIC SMD A is undocumented.&nbsp;</p>
 <ul>
 <li>Status: Ready</li>
@@ -8,3 +16,4 @@
 <li>Expansion Connector: freeDSPx AES/SPDIF IN, &hellip;</li>
 <li>PCB Source: <a href="https://github.com/freeDSP/freeDSP-CLASSIC-SMD-A" target="_blank" rel="noopener">KiCad</a></li>
 </ul>
+:ET

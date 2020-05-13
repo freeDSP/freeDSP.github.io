@@ -1,9 +1,14 @@
----
-layout: page
-title: About
-permalink: /about/
----
-<h1>freeDSP</h1>
+I" <p>Some information about you!</p>
+
+<h3 id="more-information">More Information</h3>
+
+<p>A place to include any other types of information that youâ€™d like to include about yourself.</p>
+
+<h3 id="contact-me">Contact me</h3>
+
+<p><a href="mailto:email@domain.com">email@domain.com</a></p>
+
+<p>freeDSP</p>
 <h2>A DIY audio dsp project.</h2>
 <p>The freeDSP is an open-source digital signal processor family for the do-it-yourself community. The projects feature DSP main boards, programmers, and addon boards. The freeDSP project enables end-users to create state of the art digital audio processors for a variety of uses.</p>
 <ul>
@@ -39,5 +44,6 @@ permalink: /about/
 <li><a href="https://wiki.analog.com/resources/tools-software/sigmastudio?rev=1447935767" target="_blank" rel="noopener">SigmaStudio documentation</a></li>
 <li><a href="http://ez.analog.com/community/dsp/sigmadsp" target="_blank" rel="noopener">SigmaStudio forum</a></li>
 </ul>
-<h1><a href="{{ site.baseurl }}/boards">freeDSP Project List</a></h1>
+<p>freeDSP Project List</p>
 <p style="text-align: justify;">The freeDSP is a cost-effective real-time audio signal processing solution for researchers and the do-it-yourself community. The freeDSP projects consist of freeDSP main boards, freeDSP programmers, and freeDSPx addon boards.&nbsp;</p>
+:ET
